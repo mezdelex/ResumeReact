@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './main.css'
-import { ResumeStoreProvider } from './shared/ResumeStoreHandler'
+import router from './router/router'
+import { RouterProvider } from 'react-router-dom'
+import { StoreProvider } from './providers/StoreProvider'
+import { ThemeProvider } from '@emotion/react'
+import theme from './themes/theme'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ResumeStoreProvider>
-      {/* This has to be a <Router></Router> wrapper with the link to each Page */}
-      {/* https://v5.reactrouter.com/web/guides/quick-start */}
-      <App />
-    </ResumeStoreProvider>
+    <ThemeProvider theme={theme}>
+      <StoreProvider>
+        <RouterProvider router={router} />
+      </StoreProvider>
+    </ThemeProvider>
   </React.StrictMode>
 )
-

@@ -1,14 +1,14 @@
 import { createContext, useState } from "react";
 import IProject from "../models/IProject";
-import IApp from "../models/IApp";
 import IStore from "../models/IStore";
 import IRepository from "../models/IRepository";
+import IReactNode from "../models/IReactNode";
 
-export const ResumeContext = createContext({} as IStore)
+export const Context = createContext<IStore | null>(null)
 
-export const ResumeStoreProvider = ({ children }: IApp) => {
-  const [projectItems, setProjectItems] = useState([] as Array<IProject>)
-  const [repositoryItems, setRepositoryItems] = useState([] as Array<IRepository>)
+export const StoreProvider = ({ children }: IReactNode) => {
+  const [projectItems, setProjectItems] = useState<Array<IProject>>([])
+  const [repositoryItems, setRepositoryItems] = useState<Array<IRepository>>([])
   const [date, setDate] = useState("")
   const [message, setMessage] = useState("")
   const [repo, setRepo] = useState("")
@@ -29,8 +29,8 @@ export const ResumeStoreProvider = ({ children }: IApp) => {
   }
 
   return (
-    <ResumeContext.Provider value={store}>
+    <Context.Provider value={store}>
       {children}
-    </ResumeContext.Provider >
+    </Context.Provider >
   )
 }

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface IApp {
+export default interface IReactNode {
   children: ReactNode
 }

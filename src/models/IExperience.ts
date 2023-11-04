@@ -1,6 +1,6 @@
 import { Activity, Icons } from "../enums/enums";
 
-export default interface ITimeline {
+export default interface IExperience {
   icon: Icons;
   title: string;
   date: string;

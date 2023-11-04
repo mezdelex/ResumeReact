@@ -1,7 +1,7 @@
-import ITimeline from "../models/ITimeline";
+import IExperience from "../models/IExperience";
 import { Activity, Icons, Reasons } from "../enums/enums";
 
-const timelineData: Array<ITimeline> = [
+const timelineData: Array<IExperience> = [
   {
     icon: Icons.Code,
     title: "KPMG",
