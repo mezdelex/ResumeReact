@@ -1,5 +1,23 @@
-import './Footer.css'
+import { useTheme } from '@mui/material/styles'
 
-const Footer = () => <div className='footer'>To Vim or not to Vim</div>
+const Footer = () => {
+  const theme = useTheme()
 
-export default Footer;
+  return (
+    <footer style={{
+      background: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black,
+      fontFamily: "sans-serif",
+      fontSize: ".7rem",
+      paddingTop: "2rem",
+      textAlign: "center"
+    }}>
+      <span style={{
+        color: theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.primary.dark
+      }}>
+        To Vim or not to Vim
+      </span>
+    </footer>
+  )
+}
+
+export default Footer

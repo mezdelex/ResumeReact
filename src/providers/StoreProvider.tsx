@@ -1,8 +1,8 @@
-import { createContext, useState } from "react";
-import IProject from "../models/IProject";
-import IStore from "../models/IStore";
-import IRepository from "../models/IRepository";
-import IReactNode from "../models/IReactNode";
+import { createContext, useState } from "react"
+import IProject from "../models/IProject"
+import IStore from "../models/IStore"
+import IRepository from "../models/IRepository"
+import IReactNode from "../models/IReactNode"
 
 export const Context = createContext<IStore | null>(null)
 
