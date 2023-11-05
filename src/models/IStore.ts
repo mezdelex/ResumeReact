@@ -1,16 +1,17 @@
+import { MutableRefObject } from "react"
 import IProject from "./IProject"
 import IRepository from "./IRepository"
 
 export default interface IStore {
   projectsStore: {
-    projects: [IProject[], React.Dispatch<React.SetStateAction<IProject[]>>]
+    projects: MutableRefObject<Array<IProject>>
   },
   repositoriesStore: {
-    repos: [IRepository[], React.Dispatch<React.SetStateAction<IRepository[]>>]
-    repo: [string, React.Dispatch<React.SetStateAction<string>>]
-    date: [string, React.Dispatch<React.SetStateAction<string>>]
-    link: [string, React.Dispatch<React.SetStateAction<string>>]
-    message: [string, React.Dispatch<React.SetStateAction<string>>]
-    sha: [string, React.Dispatch<React.SetStateAction<string>>]
+    repos: MutableRefObject<Array<IRepository>>
+    repo: MutableRefObject<string>
+    date: MutableRefObject<string>
+    link: MutableRefObject<string>
+    message: MutableRefObject<string>
+    sha: MutableRefObject<string>
   }
 }
