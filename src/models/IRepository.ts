@@ -1,4 +1,4 @@
 export default interface IRepository {
-  name: string,
+  name: string
   pushed_at: string
 }

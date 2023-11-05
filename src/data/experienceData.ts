@@ -1,5 +1,5 @@
-import IExperience from "../models/IExperience";
-import { Activity, Icons, Reasons } from "../enums/enums";
+import IExperience from "../models/IExperience"
+import { Activity, Icons, Reasons } from "../enums/enums"
 
 const timelineData: Array<IExperience> = [
   {
@@ -174,6 +174,6 @@ const timelineData: Array<IExperience> = [
       "RF Applications."
     ]
   }
-];
+]
 
-export default timelineData;
+export default timelineData

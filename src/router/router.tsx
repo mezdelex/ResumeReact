@@ -1,6 +1,6 @@
-import Experience from "../pages/Experience";
-import Projects from "../pages/Projects";
-import { createBrowserRouter } from "react-router-dom";
+import Experience from "../pages/Experience"
+import Projects from "../pages/Projects"
+import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
   { path: '/', element: <Experience /> },

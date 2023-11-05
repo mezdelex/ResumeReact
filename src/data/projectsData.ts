@@ -1,4 +1,4 @@
-import IProject from "../models/IProject";
+import IProject from "../models/IProject"
 
 const projectsData: Array<IProject> = [
   {
@@ -154,6 +154,6 @@ const projectsData: Array<IProject> = [
     app: "https://mezdelex.github.io/Trivia/trivial_main.html",
     description: "My first Web App back in 2020 done with Javascript, HTML, CSS and Bootstrap consuming an external Trivia API that required token authorization to be accessed. Coded with VSCode.",
   },
-];
+]
 
-export default projectsData;
+export default projectsData
