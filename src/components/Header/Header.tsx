@@ -2,25 +2,25 @@ import { ArrowRightAltRounded, DensityMedium, GitHub, LinkedIn, Reddit } from "@
 import alejandro from "../../assets/alejandro.jpg"
 import { Button, Stack } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { gitHubService } from "../../services/github/gitHubService"
 import { Context } from "../../providers/StoreProvider"
 
 const Header = () => {
   const theme = useTheme()
   const context = useContext(Context)
+  const [_, setMessage] = useState("")
 
-  useEffect(() => {
-    gitHubService.getRepos(context)
-  }, [])
-
-  useEffect(() => {
+  const handleReposAsync = async () => {
+    await gitHubService.getRepos(context)
     gitHubService.getUpdatedRepo(context)
-  }, [context?.repositoriesStore.repos[0]])
+    await gitHubService.getLastCommit(context)
+    setMessage(context!.repositoriesStore.message.current)
+  }
 
   useEffect(() => {
-    gitHubService.getLastCommit(context)
-  }, [context?.repositoriesStore.repo[0]])
+    handleReposAsync()
+  }, [])
   console.log("Rendering...")
 
   return (
@@ -60,12 +60,12 @@ const Header = () => {
                   marginLeft: ".5rem",
                   color: theme.palette.mode === "light" ? theme.palette.info.light : theme.palette.info.dark
                 }}>
-                  {context?.repositoriesStore.date[0]}
+                  {context!.repositoriesStore.date.current}
                 </span>
               </article>
               <article>
                 Commit:
-                <a href={context?.repositoriesStore.link[0]} style={{
+                <a href={context!.repositoriesStore.link.current} style={{
                   marginLeft: ".5rem"
                 }} target="_blank">
                   Link
@@ -78,7 +78,7 @@ const Header = () => {
                 marginLeft: ".5rem",
                 color: theme.palette.mode === "light" ? theme.palette.info.light : theme.palette.info.dark,
               }}>
-                {context?.repositoriesStore.message[0]}
+                {context!.repositoriesStore.message.current}
               </span>
             </section>
           </h3>
