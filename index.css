@@ -1,0 +1,20 @@
+:root {
+  max-width: 90vw;
+  background: black;
+  margin-inline: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.1s ease-in-out;
+}
+
+a:hover {
+  color: gray
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

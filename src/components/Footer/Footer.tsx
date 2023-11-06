@@ -5,10 +5,9 @@ const Footer = () => {
 
   return (
     <footer style={{
-      background: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black,
       fontFamily: "sans-serif",
       fontSize: ".7rem",
-      paddingTop: "2rem",
+      padding: "2rem 0",
       textAlign: "center"
     }}>
       <span style={{

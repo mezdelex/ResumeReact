@@ -1,4 +1,4 @@
-import { ArrowRightAltRounded, DensityMedium, GitHub, LinkedIn, Reddit } from "@mui/icons-material"
+import { DensityMedium, GitHub, LinkedIn, Reddit } from "@mui/icons-material"
 import alejandro from "../../assets/alejandro.jpg"
 import { Button, Stack } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
@@ -21,17 +21,20 @@ const Header = () => {
   useEffect(() => {
     handleReposAsync()
   }, [])
-  console.log("Rendering...")
 
   return (
     <header style={{
-      background: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black,
-      fontFamily: "sans-serif"
+      fontFamily: "sans-serif",
+      marginBottom: "3rem"
     }}>
       <Stack direction="column">
         <Stack direction="row" justifyContent="end" alignItems="center" sx={{ margin: "1rem 4rem 0 0" }}>
-          <Button variant="contained" color="primary" sx={{ paddingY: "1rem" }}>
-            <DensityMedium />
+          <Button variant="outlined" color="primary" sx={{
+            borderRadius: "1rem",
+            minWidth: "0",
+            paddingY: ".8rem"
+          }}>
+            <DensityMedium fontSize="small" />
           </Button>
         </Stack>
         <Stack direction="column" justifyContent="center" alignItems="center">
@@ -39,22 +42,23 @@ const Header = () => {
           <Stack direction="row" justifyContent="center" alignItems="center" style={{
             color: theme.palette.mode === "light" ? theme.palette.info.light : theme.palette.info.dark,
           }}>
-            <h2>
-              polyglotSoftwareDeveloper
+            <h2 style={{ fontSize: "medium", marginBottom: "0rem" }}>
+              |polyglot_software_developer|
             </h2>
-            <ArrowRightAltRounded fontSize="large" sx={{ marginLeft: "1rem" }} />
           </Stack>
           <h1 style={{
             color: theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.primary.dark,
+            fontSize: "x-large",
             marginTop: "0"
           }}>
             {"{"} Alejandro Conde Gómez {"}"}
           </h1>
           <h3 style={{
             color: theme.palette.mode === "light" ? theme.palette.secondary.light : theme.palette.secondary.dark,
+            marginTop: 0
           }}>
-            <Stack direction="row" justifyContent="center" alignItems="center" sx={{ marginBottom: "1rem" }}>
-              <article style={{ marginRight: "1rem" }}>
+            <Stack direction="row" justifyContent="center" alignItems="center" sx={{ marginBottom: ".1rem" }}>
+              <article style={{ marginRight: "1rem", fontSize: "small" }}>
                 Last activity:
                 <span style={{
                   marginLeft: ".5rem",
@@ -63,7 +67,7 @@ const Header = () => {
                   {context!.repositoriesStore.date.current}
                 </span>
               </article>
-              <article>
+              <article style={{ fontSize: "small" }}>
                 Commit:
                 <a href={context!.repositoriesStore.link.current} style={{
                   marginLeft: ".5rem"
@@ -72,7 +76,7 @@ const Header = () => {
                 </a>
               </article>
             </Stack>
-            <section style={{ maxWidth: "30rem" }}>
+            <section style={{ maxWidth: "23rem", fontSize: "small", textAlign: "center" }}>
               Message:
               <span style={{
                 marginLeft: ".5rem",
@@ -82,10 +86,17 @@ const Header = () => {
               </span>
             </section>
           </h3>
-          <section style={{}}>
-            <a href="https://github.com/mezdelex" target="_blank"><GitHub /></a>
-            <a href="https://linkedin.com/in/mezdelex/" target="_blank"><LinkedIn /></a>
-            <a href="https://reddit.com/user/Mezdelex" target="_blank"><Reddit /></a>
+          <section style={{
+            alignItems: "center",
+            color: theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.primary.dark,
+            display: "flex",
+            flexDirection: "row",
+            gap: ".2rem",
+            justifyContent: "center"
+          }}>
+            <a href="https://github.com/mezdelex" target="_blank"><GitHub sx={{ fontSize: "2.3rem" }} /></a>
+            <a href="https://linkedin.com/in/mezdelex/" target="_blank"><LinkedIn sx={{ fontSize: "3rem" }} /></a>
+            <a href="https://reddit.com/user/Mezdelex" target="_blank"><Reddit sx={{ fontSize: "2.5rem" }} /></a>
           </section>
         </Stack>
       </Stack>

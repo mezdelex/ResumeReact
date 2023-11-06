@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material"
 
 const theme = createTheme({
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          color: "inherit"
+        }
+      }
+    }
+  },
   // dark: mocha
   // light: latte
   // main: frappé
