@@ -5,11 +5,13 @@ import { useTheme } from "@mui/material/styles"
 import { useContext, useEffect, useState } from "react"
 import { gitHubService } from "../../services/github/gitHubService"
 import { Context } from "../../providers/StoreProvider"
+import Sidebar from "../Sidebar/Sidebar"
 
 const Header = () => {
-  const theme = useTheme()
-  const context = useContext(Context)
   const [_, setMessage] = useState("")
+  const [showSidebar, setShowSidebar] = useState(false)
+  const context = useContext(Context)
+  const theme = useTheme()
 
   const handleReposAsync = async () => {
     await gitHubService.getRepos(context)
@@ -33,7 +35,7 @@ const Header = () => {
             borderRadius: "1rem",
             minWidth: "0",
             paddingY: ".8rem"
-          }}>
+          }} onClick={() => setShowSidebar(!showSidebar)}>
             <DensityMedium fontSize="small" />
           </Button>
         </Stack>
@@ -100,6 +102,7 @@ const Header = () => {
           </section>
         </Stack>
       </Stack>
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </header >
   )
 }

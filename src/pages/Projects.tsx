@@ -1,7 +1,9 @@
+import Header from "../components/Header/Header"
+
 const Projects = () => {
   return (
     <>
-      This is Projects page
+      <Header />
     </>
   )
 }
